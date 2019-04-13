@@ -1,0 +1,235 @@
+/* CSS Document */
+*
+{
+	margin:0;
+	padding:0;
+	
+
+}
+body
+{
+	background-image: url('b.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.navbar-inverse
+{
+	border:none;
+	height:130px;
+	background-image: url('b.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.navbar-inverse .navbar-brand
+{
+	color:#fff;
+	text-shadow:2px 2px 2px #000;
+	font-size:50px;
+	padding:30px;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+	background-color: #FFF;
+	color:#226ec0;
+}
+.navbar-inverse .navbar-nav>li>a:hover{
+	background-color: #226ec0;
+	color:#FFF;
+}
+.navbar-inverse .navbar-nav>li>a:active{
+	background-color: #226ec0;
+	color:#FFF;
+}
+/*=======================================Home Slider=====================================*/
+.slider
+{
+	width:80%;
+	margin:150px auto 0px auto;
+}
+.recent_product
+{
+	margin-top:20px;
+	border:1px solid black;
+	height:auto;
+	background-image: url('b.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.panel-body{
+	background-color: #8dbbec;
+}
+.panel-heading{
+	background-color: #8dbbec;
+	color:black;
+}
+.my_cart
+{
+    height: auto;
+    position:inherit;
+}
+.my_cart h3
+{
+	margin:20px auto 0px auto;
+	padding:10px;
+	text-shadow:1px 1px 1px #fff;
+	font-size:20px;
+	font-weight:bold;
+}
+.my_cart .cart_items
+{
+    background-color: #fff;
+	margin:0px auto;
+	padding:5px 0px 5px 20px;
+	width:90%;
+	border:1px solid #000;
+	height:auto;
+}
+.cart_items ol
+{
+    margin-right: 5px;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+    padding-bottom: 5px;
+}
+.my_cart_items
+{
+    width: 50px;
+    height: 40px;
+}
+.my_cart_items_title,.my_cart_items_price
+{
+    padding-left: 15px;
+}
+
+.recent_product_container
+{
+    width: 750px;
+}
+.recent_img
+{
+    display: inline-block;
+}
+.home_img
+{
+    width: 200px;
+    height: 200px;
+}
+.recent_img_desc .col-md-4
+{
+    width: 230px;
+    font-size: 16px;
+    text-align: center;
+}
+.recent_img_desc .col-md-4 .btn-add-cart
+{
+    font-size: 14px;
+    margin-top: 10px;
+    padding:8px 20px 8px 20px;
+    background-color: transparent;
+    border: 2px solid rgba(0,0,0,0.8);
+    transition: all linear 0.2s;
+}
+.recent_img_desc .col-md-4 .btn-add-cart:hover
+{
+    border-radius: 5px;
+    border: 3px solid blue;
+}
+
+/*======================================= Arts =====================================*/
+.art_inner
+{
+    margin-top:130px;
+    background-color:#fff;
+	height:auto;
+    padding: 0;
+}
+
+
+/*======================================Popup Menu=================================*/
+
+#signlog
+{
+	display:block;
+	font-size:16px;
+	text-shadow:1px 1px 1px #000;
+	text-align:center;
+	color:#fff;
+	background:transparent;
+	border:none;
+	width:auto;
+	height:auto;
+	padding:12px;
+}
+.popup
+{
+
+		width:60%;
+}
+
+/*======================Validation===========================**/
+.val_err,.pwd_val
+{
+	display:none;
+}
+
+
+
+/*======================================Cart=========================================*/
+.cart-container
+{
+    background-color:#fff;
+	margin-top:130px;
+    height: 600px;
+}
+.q_item_group
+{
+	margin:0px auto;
+	border:1px solid rgba(0,0,0,0.1);
+	border-radius:5px;
+	line-height:2;
+	width:100px;
+
+}
+.q_item_group .add,.remove
+{
+	font-weight:bolder;
+	cursor:pointer;
+	transition:all linear 0.2s;
+}
+.q_item_group .add:hover,.remove:hover
+{
+	color:#fff;
+	background-color:rgba(0,102,102,0.3);
+}
+.cart_table td
+{
+	text-align:center;
+	border:1px solid rgba(0,0,0,0.2);
+}
+.cart_table tr td>button
+{
+	color:#fff;
+	font-size:15px;
+	text-shadow:1px 1px 1px rgba(0,0,0,0.2);
+	border:none;
+	border-radius:3px;
+	background-color:rgba(0,102,102,0.7);
+	padding:5px;
+	width:80%;
+	height:40px;
+	transition:all linear 0.2s;
+}
+.cart_table tr td>button:hover
+{
+	text-shadow:1px 1px 1px rgba(0,0,0,0.8);
+	background-color:rgba(0,102,102,0.6);
+}
+.cart_table .glyphicon-remove
+{
+    color: rgba(255,0,0,0.8);
+    font-weight:lighter;
+    font-size: 24px;
+    cursor: pointer;
+}
