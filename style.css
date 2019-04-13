@@ -122,7 +122,7 @@ body
     font-size: 16px;
     text-align: center;
 }
-.recent_img_desc .col-md-4 .btn-add-cart
+.recent_img_desc .col-md-4 .cart
 {
     font-size: 14px;
     margin-top: 10px;
@@ -131,10 +131,42 @@ body
     border: 2px solid rgba(0,0,0,0.8);
     transition: all linear 0.2s;
 }
-.recent_img_desc .col-md-4 .btn-add-cart:hover
+.recent_img_desc .col-md-4 .cart:hover
 {
     border-radius: 5px;
     border: 3px solid blue;
+}
+.recent_img_desc .col-md-4 .like
+{
+    font-size: 14px;
+    margin-top: 10px;
+    padding:8px 20px 8px 20px;
+    background-color: transparent;
+    border: 2px solid rgba(0,0,0,0.8);
+    transition: all linear 0.2s;
+}
+.recent_img_desc .col-md-4 .like:hover
+{
+    border-radius: 5px;
+    border: 3px solid blue;
+}
+.recent_img_desc .col-md-4 .liked
+{
+    font-size: 14px;
+    margin-top: 10px;
+    padding:8px 20px 8px 20px;
+    background-color: transparent;
+    border: 2px solid rgba(0,0,0,0.8);
+    transition: all linear 0.2s;
+}
+.recent_img_desc .col-md-4 .added
+{
+    font-size: 14px;
+    margin-top: 10px;
+    padding:8px 20px 8px 20px;
+    background-color: transparent;
+    border: 2px solid rgba(0,0,0,0.8);
+    transition: all linear 0.2s;
 }
 
 /*======================================= Arts =====================================*/

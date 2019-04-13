@@ -1,15 +1,43 @@
 <?php
+	$userid = $_REQUEST["q"];
+	$type = $_REQUEST["t"];
+	$artist = $_REQUEST["a"];
 	$page="index";
 	$title="Home";
 	require_once('header.php');
-	$host="localhost";
-$dbusername="root";
-$dbpassword="";
+	$servername = "localhost";
+	$username = "Gurmeet";
+	$password = "WINDOWSTEN";
   $dbname="art_gallery";
-  $con=mysqli_connect($host,$dbusername,$dbpassword,$dbname);
-  $sql = "select * from art,artist where artist.id=art.painter and art.Sold='NO'";
-$res=mysqli_query($con,$sql);
-
+	$con=mysqli_connect($servername,$username,$password,$dbname);
+	$sql="";
+	if($type=='all' and $artist=='all'){
+	$sql = "select * from art,artist where artist.id=art.painter and art.Sold='NO'";}
+	else if($type!='all' and $artist=='all'){
+		$sql = "select * from art,artist where artist.id=art.painter and art.Sold='NO' and art.type='$type'";
+	}
+	else{
+		$sql = "select * from art,artist where artist.id=art.painter and art.Sold='NO' and artist.pname='$artist'";
+	}
+	$sql1 = "select Art from cart where id=".$userid;
+	$sql2 = "select Art from liked where id=".$userid;
+	$res=mysqli_query($con,$sql);
+	$res1=mysqli_query($con,$sql1);
+	$res2=mysqli_query($con,$sql2);
+	$cart = array();
+	$liked = array();
+	$i=0;
+	if (mysqli_num_rows($res1) > 0) {
+	while($row = mysqli_fetch_assoc($res1)) {
+		$cart[$i] = $row["Art"];
+		$i++;
+	}}
+	$i=0;
+	if (mysqli_num_rows($res2) > 0) {
+	while($row = mysqli_fetch_assoc($res2)) {
+		$liked[$i] = $row["Art"];
+		$i++;
+	}}
 ?>
 		<div class="container-fluid" style="width:100%;padding:0;">
 		  <div class="row slider" style="width:100%;padding:0;">
@@ -57,11 +85,25 @@ $res=mysqli_query($con,$sql);
 				        <div class="panel-body">
 								<div class="container recent_product_container">
 															<?php
-															$i=0;
-
+					
 															if (mysqli_num_rows($res) > 0) {
 																    while($row = mysqli_fetch_assoc($res)) {
-
+																				$lc = "like";
+																				$cc = "cart";
+																				$dl = "";
+																				$dc = "";
+																				$lt = "Like";
+																				$ct = "Add to Cart";
+																				if(in_array($row['Name'], $liked)){
+																					$lc = "liked";
+																					$dl = "disabled";
+																					$lt = "Liked";
+																				}
+																				if(in_array($row['Name'], $cart)){
+																					$cc = "added";
+																					$dc = "disabled";
+																					$ct = "Added";
+																				}
 																				echo '
 																				<ul style="list-style-type:none;">
 																				<li>
@@ -81,8 +123,8 @@ $res=mysqli_query($con,$sql);
 																				</span></div>
 																				<div class="col-md-4">
 																				<div class="row recent_img_desc" style="position:relative;top:30px">
-				                                <div class="col-md-4"><button type="button" class="btn-add-cart">Add to Cart</button></div>
-																				<div class="col-md-4"><button type="button" class="btn-add-cart">Like</button></div></div>
+				                                <div class="col-md-4"><button id="c'.$row["Name"].'" type="button" class="'.$cc.'" '.$dc.'>'.$ct.'</button></div>
+																				<div class="col-md-4"><button id="l'.$row["Name"].'" type="button" class="'.$lc.'" '.$dl.'>'.$lt.'</button></div></div>
 																				</div>
 																				</div></li>
 
@@ -100,9 +142,51 @@ $res=mysqli_query($con,$sql);
                 </div>
 			</div>
 
-		  </div>
+			</div>
+			
 			<script src="js/jquery.js"></script>
 			<script src="js/script.js"></script>
 			<script src="js/bootstrap.min.js"></script>
+
+			<script>
+				$(document).ready(function(){
+					$(".like").click(function(){
+						$(this).attr("disabled", true);
+						$(this).text("Liked");
+						$(this).attr("class", "liked");
+						var name = $(this).attr("id");
+						name = name.substring(1);
+						var id = <?php echo $userid; ?>;
+						var xmlhttp = new XMLHttpRequest();
+						xmlhttp.onreadystatechange = function() {
+							if (this.readyState == 4 && this.status == 200) {
+							var msg = this.responseText;
+							
+							}
+						};
+						xmlhttp.open("GET", "http://localhost/Art/liked.php?q="+name+"&p="+id, true);
+						xmlhttp.send();
+					});
+					$(".cart").click(function(){
+						$(this).attr("disabled", true);
+						$(this).text("Added");
+						$(this).attr("class", "added");
+						var name = $(this).attr("id");
+						name = name.substring(1);
+						var id = <?php echo $userid; ?>;
+						var xmlhttp = new XMLHttpRequest();
+						xmlhttp.onreadystatechange = function() {
+							if (this.readyState == 4 && this.status == 200) {
+							var msg = this.responseText;
+							
+							}
+						};
+						xmlhttp.open("GET", "http://localhost/Art/addcart.php?q="+name+"&p="+id, true);
+						xmlhttp.send();
+					});
+				});
+			</script>
+
+
 			</body>
 			</html>

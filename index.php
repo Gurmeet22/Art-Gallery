@@ -22,7 +22,7 @@
 				$pass = $row["Password"];
 				$id = $row["Id"];
 				if(strcmp($pass,$_POST["user_pwd"])==0){
-					header('Location: http://localhost/Art/user.php?q='.$id); }
+					header('Location: http://localhost/Art/user.php?q='.$id.'&t=all&a=all'); }
 				else{
 					$perr = "*Invalid Password";
 					//header('Location: http://localhost/scripts/index.php');
