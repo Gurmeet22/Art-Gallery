@@ -33,6 +33,7 @@ body
 .navbar-inverse .navbar-nav>li>a{
 	background-color: #FFF;
 	color:#226ec0;
+	width:100px;
 }
 .navbar-inverse .navbar-nav>li>a:hover{
 	background-color: #226ec0;

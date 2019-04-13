@@ -2,7 +2,7 @@
 $t=0;
 	$userid = $_REQUEST["q"];
 	$page="cart";
-	$title="cart";
+	$title="Cart";
 	require_once('header.php');
 	$servername = "localhost";
 	$username = "Gurmeet";
@@ -15,7 +15,7 @@ $t=0;
 
       <div class="container-fluid cart-container">
 				<div class="panel panel-default">
-				  <div class="panel-heading">Cart</div>
+				  <div class="panel-heading" style="text-align:center;"><h1>Cart</h1></div>
 				  <div class="panel-body">
 					<table class="table cart_table" align="center" id="myTable">
 					  <tr style="font-weight:bolder">
@@ -51,9 +51,9 @@ $t=0;
 						</td>
 						<td>
 							<div class="input-group q_item_group">
-							  <div class="input-group-addon add" onclick="btnClick(1,'.$i.')">+</div>
+							  <div class="input-group-addon add" onclick="btnClick(1,'.$i.')"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div>
 								<center><lable id="q_item'.$i.'" value="1">1</lable></center>
-							  <div class="input-group-addon remove" onclick="btnClick(0,'.$i.')">-</div>
+							  <div class="input-group-addon remove" onclick="btnClick(0,'.$i.')"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div>
 							</div>
 						</td>
 						<td>
@@ -69,7 +69,7 @@ $t=0;
 					  <tr>
 						<td colspan="4"></td>
 						<td>Grand Total : Rs.<span id="gt"><?php echo $t; ?></span></td>
-						<td><button>Proceed to Checkout</button></td>
+						<td><button><span style="position:relative;left:-20px;" class="glyphicon glyphicon-ok" aria-hidden="true"></span>Proceed to Checkout</button></td>
 					  </tr>
 					</table>
 

@@ -2,6 +2,7 @@
 	$userid = $_REQUEST["q"];
 	$type = $_REQUEST["t"];
 	$artist = $_REQUEST["a"];
+	$sort = $_REQUEST["s"];
 	$page="index";
 	$title="Home";
 	require_once('header.php');
@@ -12,12 +13,12 @@
 	$con=mysqli_connect($servername,$username,$password,$dbname);
 	$sql="";
 	if($type=='all' and $artist=='all'){
-	$sql = "select * from art,artist where artist.id=art.painter and art.Sold='NO'";}
+	$sql = "select * from art,artist where artist.id=art.painter and art.Sold='NO' order by art.".$sort." desc";}
 	else if($type!='all' and $artist=='all'){
-		$sql = "select * from art,artist where artist.id=art.painter and art.Sold='NO' and art.type='$type'";
+		$sql = "select * from art,artist where artist.id=art.painter and art.Sold='NO' and art.type='$type' order by art.".$sort." desc";
 	}
 	else{
-		$sql = "select * from art,artist where artist.id=art.painter and art.Sold='NO' and artist.pname='$artist'";
+		$sql = "select * from art,artist where artist.id=art.painter and art.Sold='NO' and artist.pname='$artist' order by art.".$sort." desc";
 	}
 	$sql1 = "select Art from cart where id=".$userid;
 	$sql2 = "select Art from liked where id=".$userid;
@@ -47,22 +48,20 @@
 					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 					<li data-target="#myCarousel" data-slide-to="1"></li>
 					<li data-target="#myCarousel" data-slide-to="2"></li>
-					<li data-target="#myCarousel" data-slide-to="3"></li>
+		
 			
 				  </ol>
 				  <div class="carousel-inner" role="listbox">
 					
+				
 					<div class="item active">
-					  <img src="images/2.jpg" alt="Chania" style="height:500px;width:100%">
-					</div>
-					<div class="item">
-					  <img src="images/3.jpg" alt="Flower" style="height:500px;width:100%">
-					</div>
-					<div class="item">
-					  <img src="images/1.jpg" alt="Flower" style="height:500px;width:100%">
+					  <img src="images/6.jpg" alt="Flower" style="height:500px;width:100%">
 					</div>
 					<div class="item">
 					  <img src="images/4.jpg" alt="Flower" style="height:500px;width:100%">
+					</div>
+					<div class="item">
+					  <img src="images/8.jpg" alt="Flower" style="height:500px;width:100%">
 					</div>
 				  </div>
 
@@ -81,7 +80,16 @@
 		  <div class="row home_info">
 			<div class="col-md-12 recent_product">
                 <div class="panel panel-default">
-				    <div class="panel-heading" style="text-align:center;background-color: #8dbbec;"><h1 style="color:black;">Available Paintings</h1></div>
+						<div class="panel-heading" style="background-color: #8dbbec;"><h1 style="text-align:center;color:black;">Available Paintings</h1>
+						<div class="dropdown" style="color:white;position:relative;left:700px;">
+							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort By
+							<span class="caret"></span></button>
+							<ul class="dropdown-menu">
+								<li><a href="http://localhost/Art/user.php?q=<?php echo $userid; ?>&t=<?php echo $type; ?>&a=<?php echo $artist; ?>&s=Price">Price</a></li>
+								<li><a href="http://localhost/Art/user.php?q=<?php echo $userid; ?>&t=<?php echo $type; ?>&a=<?php echo $artist; ?>&s=Likes">Likes</a></li>
+							</ul>
+						</div>
+					</div>
 				        <div class="panel-body">
 								<div class="container recent_product_container">
 															<?php
