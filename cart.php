@@ -18,6 +18,7 @@ $t=0;
 				  <div class="panel-heading" style="text-align:center;"><h1>Cart</h1></div>
 				  <div class="panel-body">
 					<table class="table cart_table" align="center" id="myTable">
+						<thead>
 					  <tr style="font-weight:bolder">
 						<td></td>
 						<td></td>
@@ -25,7 +26,9 @@ $t=0;
 						<td>Price</td>
 						<td>Quantity</td>
 						<td>Total</td>
-					  </tr>
+						</tr>
+						</thead>
+						<tbody>
 						<?php
 						if (mysqli_num_rows($res) > 0) {
 							$i=0;
@@ -69,34 +72,14 @@ $t=0;
 					  <tr>
 						<td colspan="4"></td>
 						<td>Grand Total : Rs.<span id="gt"><?php echo $t; ?></span></td>
-						<td><button><span style="position:relative;left:-20px;" class="glyphicon glyphicon-ok" aria-hidden="true"></span>Proceed to Checkout</button></td>
-					  </tr>
+						<td><button onclick="bought()"><span style="position:relative;left:-20px;" class="glyphicon glyphicon-ok" aria-hidden="true"></span>Proceed to Checkout</button></td>
+						</tr>
+					</tbody>
 					</table>
 
 				  </div>
 				</div>
       </div>
-
-	<script>
-
-	function deleteRow(r,n) {
-		var id = <?php echo $userid; ?>;
-		var i = r.parentNode.parentNode.rowIndex;
-		document.getElementById("myTable").deleteRow(i);
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			var msg = this.responseText;
-							
-			}
-		};
-		xmlhttp.open("GET", "http://localhost/Art/delcart.php?q="+n+"&p="+id, true);
-		xmlhttp.send();
-	}
-
-	</script>
-
-
 
 	<script src="js/jquery.js"></script>
 	<script src="js/script.js"></script>
@@ -104,7 +87,6 @@ $t=0;
 
 	<script type="text/javascript">
 	
-
 		function btnClick(x,y){
 			var a=document.getElementById("q_item"+y).innerHTML;
 			var b=document.getElementById("price"+y).innerHTML;
@@ -122,7 +104,38 @@ $t=0;
 		document.getElementById("total_price"+y).innerHTML = parseInt(document.getElementById("q_item"+y).innerHTML)*parseInt(b);
 			
 		}
+	function deleteRow(r,n) {
+		var id = <?php echo $userid; ?>;
+		var i = r.parentNode.parentNode.rowIndex;
+		document.getElementById("myTable").deleteRow(i);
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var msg = this.responseText;
+							
+			}
+		};
+		xmlhttp.open("GET", "http://localhost/Art/delcart.php?q="+n+"&p="+id, true);
+		xmlhttp.send();
+	}
 
+
+	function bought(){
+		var id = <?php echo $userid; ?>;
+		var c=document.getElementById("gt").innerHTML;
+		c = parseInt(c);
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var msg = this.responseText;
+			if(msg=="OK"){
+				$("#myTable tbody tr").remove();
+			}
+			}
+		};
+		xmlhttp.open("GET", "http://localhost/Art/buy.php?q="+id+"&c="+c, true);
+		xmlhttp.send();
+	}
 	</script>
 	</body>
 	</html>
