@@ -20,7 +20,7 @@
 					<div class="container">
 						<h1 style="position:relative;left:100px;">Profile Info</h1><br>
 						<img src="images/pic.png" alt="profile">
-						<span><button type="button" class="btn btn-default" style="font-size:120%;padding:10px;">Upload Profile Photo</button></span><br>
+						<span><button type="button" class="btn btn-default" style="font-size:120%;padding:10px;">Change Profile Photo</button></span><br>
 					</div>
 					<div class="container" style="font-size:150%;position:relative;left:30px;">
 						<h2>Name : <?php echo $row["Name"]; ?></h2><br>
@@ -85,7 +85,7 @@
 	<div class="modal-content">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-			<h3 class="modal-title" id="lineModalLabel">My Modal</h3>
+			<h3 class="modal-title" id="lineModalLabel">Edit Details</h3>
 		</div>
 		<div class="modal-body">
 			

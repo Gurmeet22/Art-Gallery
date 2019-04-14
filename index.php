@@ -6,7 +6,8 @@
 		$dbname = "art_gallery";
 		$rerr = "";
 		$perr = "";
-		$aerr = "";
+		$arerr = "";
+		$aperr = "";
 		// Create connection
 		$conn = new mysqli($servername, $username, $password, $dbname);
 		// Check connection
@@ -41,14 +42,18 @@
 				$pass = $row["Password"];
 				$id = $row["Id"];
 				if(strcmp($pass,$_POST["apwd"])==0){
-					header('Location: http://localhost/Art/admin.php?q='.$id); }
+					session_start();
+					$_SESSION["id"] = $id;
+					header('Location: http://localhost/Art/artist_details.php');
+					die();
+				}
 				else{
-					$perr = "*Invalid Password";
+					$aperr = "*Invalid Password";
 					//header('Location: http://localhost/scripts/index.php');
 				}
 			}
 			else{
-				$rerr = "*Invalid Username";/*header('Location: http://localhost/scripts/index.html');die;*/
+				$arerr = "*Invalid Username";/*header('Location: http://localhost/scripts/index.html');die;*/
 			}
 		}
 		?>
@@ -128,12 +133,12 @@
                                 <div class="col-md-10">
 									<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 									<div class="form-group">											
-											<span class="error"><?php echo "$rerr";?></span>									    
+											<span class="error"><?php echo "$arerr";?></span>									    
                                             <input type="text" name="arno" class="form-control" placeholder="Your Username *" required/>
                                         </div>
                                         
                                         <div class="form-group">
-											<span class="error"><?php echo "$aerr";?></span>
+											<span class="error"><?php echo "$aperr";?></span>
                                             <input type="password" name="apwd" class="form-control" placeholder="Enter Password *" required=""  />
                                         </div>
                                         <div class="form-group">
