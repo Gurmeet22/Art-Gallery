@@ -6,7 +6,7 @@
     $spent = $_REQUEST["c"];
     $id = $_REQUEST["q"];
     $con=mysqli_connect($servername,$username,$password,$dbname);
-    $sql = "select Art from cart";
+    $sql = "select Art from cart where Id = ".$id;
     $res = mysqli_query($con, $sql);
     if (mysqli_num_rows($res) > 0) {
         while($row = mysqli_fetch_assoc($res)) {

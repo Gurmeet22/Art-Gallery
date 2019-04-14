@@ -20,14 +20,15 @@
 					<div class="container">
 						<h1 style="position:relative;left:100px;">Profile Info</h1><br>
 						<img src="images/pic.png" alt="profile">
-						<span><button type="button" class="btn btn-default" style="font-size:120%;padding:10px;">Upload Profile Photo</button></span>
+						<span><button type="button" class="btn btn-default" style="font-size:120%;padding:10px;">Upload Profile Photo</button></span><br>
 					</div>
 					<div class="container" style="font-size:150%;position:relative;left:30px;">
 						Name : <?php echo $row["Name"]; ?><br>
 						Email : <?php echo $row["Email"]; ?><br>
 						Phone : <?php echo $row["Phone"]; ?><br>
 						Username : <?php echo $row["Username"]; ?><br>
-						Total Spent : Rs. <?php echo $row["Spent"]; ?><br>
+						Total Spent : Rs. <?php echo $row["Spent"]; ?><br><br><br>
+						<button onclick="window.location.href = 'http://localhost/Art/'" type="button" class="btn btn-default" style="font-size:120%;padding:10px;position:relative;left:40px;">Log Out</button>
 					</div>
 				</div>
 				<div class="col-md-4"  style="border-right: 2px solid #fff;border-left: 2px solid #fff;">

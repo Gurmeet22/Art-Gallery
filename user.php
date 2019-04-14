@@ -169,7 +169,7 @@
 						xmlhttp.onreadystatechange = function() {
 							if (this.readyState == 4 && this.status == 200) {
 							var msg = this.responseText;
-							
+							location.reload();
 							}
 						};
 						xmlhttp.open("GET", "http://localhost/Art/liked.php?q="+name+"&p="+id, true);

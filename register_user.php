@@ -23,7 +23,7 @@ if(isset($_POST["register"])){
 			die("Connection failed: " . $conn->connect_error);
 		}
 		$sql = "INSERT INTO user VALUES ('$name', '$ph', '$email', '$user', '$pwd', '', 0)";
-		
+		$conn->query($sql);
 		/*$sql2 = "select Roll from class where Username='$user'";
 		$result = $conn->query($sql2);
 		$row = $result->fetch_assoc();
