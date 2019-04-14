@@ -15,7 +15,7 @@ $t=0;
 
       <div class="container-fluid cart-container">
 				<div class="panel panel-default">
-				  <div class="panel-heading" style="text-align:center;"><h1>Cart</h1></div>
+				  <div class="panel-heading" style="text-align:center;"><h1>My Cart</h1></div>
 				  <div class="panel-body">
 					<table class="table cart_table" align="center" id="myTable">
 						<thead>
@@ -39,7 +39,7 @@ $t=0;
 								$row1 = mysqli_fetch_assoc($res1);
 								$price = $row1["Price"];
 								echo '
-					  <tr>
+					  <tr id="paint">
 						<td>
 							<button onclick="deleteRow(this,\''.$name.'\')" style="background-color:#8dbbec;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
 						</td>
@@ -72,7 +72,7 @@ $t=0;
 					  <tr>
 						<td colspan="4"></td>
 						<td>Grand Total : Rs.<span id="gt"><?php echo $t; ?></span></td>
-						<td><button onclick="bought()"><span style="position:relative;left:-20px;" class="glyphicon glyphicon-ok" aria-hidden="true"></span>Proceed to Checkout</button></td>
+						<td><button onclick="bought()"><span style="position:relative;left:-20px;" class="glyphicon glyphicon-ok" aria-hidden="true"></span>Confirm Purchase</button></td>
 						</tr>
 					</tbody>
 					</table>
@@ -129,7 +129,7 @@ $t=0;
 		if (this.readyState == 4 && this.status == 200) {
 			var msg = this.responseText;
 			if(msg=="OK"){
-				$("#myTable tbody tr").remove();
+				$("#myTable tbody #paint").remove();
 			}
 			}
 		};

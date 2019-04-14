@@ -266,3 +266,18 @@ body
     font-size: 24px;
     cursor: pointer;
 }
+
+.panel-body .col-md-4 .upload
+{
+    font-size: 14px;
+    margin-top: 10px;
+    padding:8px 20px 8px 20px;
+    background-color: transparent;
+    border: 2px solid rgba(0,0,0,0.8);
+    transition: all linear 0.2s;
+}
+.panel-body .col-md-4 .upload:hover
+{
+    border-radius: 5px;
+    border: 3px solid blue;
+}

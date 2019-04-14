@@ -117,7 +117,7 @@
 																				<li>
 																				<div class="row">
 																				<div class="col-md-4">
-																				<img src="images/'.$row["Name"].'.jpg" class="img-thumbnail home_img" width="500px" alt="Cinque Terre">
+																				<img src="images/'.$row["Name"].'.jpg" class="img-thumbnail home_img" width="500px" alt="Painting">
 																				</div>
 																				<div class="col-md-4">
 																				<span class="img-info" style="font-size:110%;position:relative;top:30px">
