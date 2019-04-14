@@ -15,7 +15,7 @@
             mysqli_query($con, $sql1);
     }}
     $sql3 = "delete from cart";
-    $sql2 = "update user set Spent = ".$spent." where Id = ".$id;
+    $sql2 = "update user set Spent = Spent + ".$spent." where Id = ".$id;
     mysqli_query($con, $sql2);
     mysqli_query($con, $sql3);
     echo "OK";
