@@ -1,5 +1,6 @@
 <?php
-	$userid = $_REQUEST["q"];
+session_start();
+	$userid = $_SESSION["uid"];
 	$type = $_REQUEST["t"];
 	$artist = $_REQUEST["a"];
 	$sort = $_REQUEST["s"];

@@ -42,10 +42,10 @@
 				     <ul class="dropdown-menu">
 				   	<li style="text-align:center;">Category <span class="caret"></span></li>
 				   	<li role="separator" class="divider"></li>
-				   	<li><a href="http://localhost/Art/user.php?q=<?php echo $userid; ?>&t=Nature&a=all&s=Price">Nature Paintings</a></li>
-				   	<li><a  href="http://localhost/Art/user.php?q=<?php echo $userid; ?>&t=19th&a=all&s=Price">19th Century Paintings</a></li>
-				   	<li><a  href="http://localhost/Art/user.php?q=<?php echo $userid; ?>&t=Animal&a=all&s=Price">Animal Paintings</a></li>
-				   	<li><a  href="http://localhost/Art/user.php?q=<?php echo $userid; ?>&t=Landscape&a=all&s=Price">Landscape Paintings</a></li>
+				   	<li><a href="http://localhost/Art/user.php?t=Nature&a=all&s=Price">Nature Paintings</a></li>
+				   	<li><a  href="http://localhost/Art/user.php?t=19th&a=all&s=Price">19th Century Paintings</a></li>
+				   	<li><a  href="http://localhost/Art/user.php?t=Animal&a=all&s=Price">Animal Paintings</a></li>
+				   	<li><a  href="http://localhost/Art/user.php?t=Landscape&a=all&s=Price">Landscape Paintings</a></li>
 				   	<li role="separator" class="divider"></li>
 
 				   	<li style="text-align:center;">Artists <span class="caret"></span></li>
@@ -55,7 +55,7 @@
 					  	while($row = mysqli_fetch_assoc($res)) {
 							$name = $row["pname"];
 							echo '
-				   	<li><a href="http://localhost/Art/user.php?q='.$userid.'&t=all&a='.$name.'&s=Price">'.$name.'</a></li>';
+				   	<li><a href="http://localhost/Art/user.php?t=all&a='.$name.'&s=Price">'.$name.'</a></li>';
 					  	}
 				   	}
 				   	mysqli_close($con);
@@ -64,7 +64,7 @@
 			     	</li>
 
 			     	<li <?php if($page=="cart") echo 'class="active"' ?>><a href="http://localhost/Art/cart.php?q=<?php echo $userid; ?>">Cart<span style="position:relative;left:15px;" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
-			     	<li <?php if($page=="profile") echo 'class="active"' ?>><a href="http://localhost/Art/profile_user.php?q=<?php echo $userid; ?>">Profile<span style="position:relative;left:15px;" class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
+			     	<li <?php if($page=="profile") echo 'class="active"' ?>><a href="http://localhost/Art/profile_user.php">Profile<span style="position:relative;left:15px;" class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
 			      </ul>
 		      	</div>
 		        </div>

@@ -1,5 +1,6 @@
 <?php
-	$userid = $_REQUEST["q"];
+session_start();
+$userid = $_SESSION["uid"];
 	$page="profile";
 	$title="Profile";
 	require_once('header.php');
@@ -11,6 +12,49 @@
 	$sql = "select * from user where Id = ".$userid;
 	$res = mysqli_query($con, $sql);
 	$row = mysqli_fetch_assoc($res);
+
+	if(isset($_POST["register"]))
+
+	{
+	if(isset($_FILES['image']))
+	{
+ 		$errors= array();
+ 		$file_name = $_FILES['image']['name'];
+ 		$file_size =$_FILES['image']['size'];
+ 		$file_tmp =$_FILES['image']['tmp_name'];
+ 		$file_type=$_FILES['image']['type'];
+ 		$file_array=explode('.',$_FILES['image']['name']);
+ 		$file_ext=$file_array[count($file_array)-1];
+
+ 		$extensions= array("jpeg","jpg","png");
+
+ 		if(in_array($file_ext,$extensions)=== false)
+ 		{
+ 			 $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+ 		}
+
+ 		if($file_size > 2097152){
+ 			 $errors[]='File size must be excately 2 MB';
+ 		}
+
+ 		if(empty($errors)==true)
+		{
+ 			 move_uploaded_file($file_tmp,"User_profile/".$file_name);
+ 		}
+		else
+ 		{
+ 			 print_r($errors);
+			 die();
+		 }
+		 $file_name = substr($file_name, 0, -4);
+		 $sql1 = "update user set Prof_img = '$file_name' where Id = ".$userid;
+		 mysqli_query($con, $sql1);
+		 header('Location: http://localhost/Art/profile_user.php');
+	}
+}
+
+
+
 ?>
 <div class="container-fluid cart-container">
 	<div class="panel panel-default">
@@ -19,8 +63,11 @@
 				<div class="col-md-4">
 					<div class="container">
 						<h1 style="position:relative;left:100px;">Profile Info</h1><br>
-						<img src="images/pic.png" alt="profile">
-						<span><button type="button" class="btn btn-default" style="font-size:120%;padding:10px;">Change Profile Photo</button></span><br>
+						<img style="position:relative;left:100px;" width="200" src="User_profile/<?php echo $row['Prof_img']; ?>.jpg" alt="profile"><br><br>
+						<form method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+						<b style="position:relative;left:50px;"> Change Profile Image :</b> <input placeholder="Change Profile Image" type="file" name="image" style="position:relative;left:40px;"><br>
+						<input style="position:relative;left:250px;top:-50px;" type="submit" class="btn btn-warning" name="register" value="Upload" >
+						</form>
 					</div>
 					<div class="container" style="font-size:150%;position:relative;left:30px;">
 						<h2>Name : <?php echo $row["Name"]; ?></h2><br>

@@ -1,4 +1,71 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+
+$id = $_SESSION["id"];
+  
+  $host="localhost";
+   $dbusername="Gurmeet";
+   $dbpassword="WINDOWSTEN";
+     $dbname="art_gallery";
+     $con=mysqli_connect($host,$dbusername,$dbpassword,$dbname);
+     $sql = "select * from artist where Id=".$id ;
+     $sql2 = "select * from art where Painter=".$id ;
+     $sql1 = "select sum(likes) from art where painter = ".$id ;
+     $res1=mysqli_query($con,$sql1);
+     $row1 = mysqli_fetch_assoc($res1);
+     $likes = $row1["sum(likes)"];
+   $res=mysqli_query($con,$sql);
+   $res2=mysqli_query($con,$sql2);
+   $cnt = mysqli_num_rows($res2);
+   if (mysqli_num_rows($res) > 0)
+   {
+   $row = mysqli_fetch_assoc($res);
+   }
+   else
+     die();
+
+
+if(isset($_POST["register"]))
+
+{
+if(isset($_FILES['image']))
+{
+  $errors= array();
+  $file_name = $_FILES['image']['name'];
+  $file_size =$_FILES['image']['size'];
+  $file_tmp =$_FILES['image']['tmp_name'];
+  $file_type=$_FILES['image']['type'];
+  $file_array=explode('.',$_FILES['image']['name']);
+  $file_ext=$file_array[count($file_array)-1];
+
+  $extensions= array("jpeg","jpg","png");
+
+  if(in_array($file_ext,$extensions)=== false)
+  {
+     $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+  }
+
+  if($file_size > 2097152){
+     $errors[]='File size must be excately 2 MB';
+  }
+
+  if(empty($errors)==true)
+ {
+     move_uploaded_file($file_tmp,"Artist_profile/".$file_name);
+  }
+ else
+  {
+     print_r($errors);
+    die();
+  }
+  $file_name = substr($file_name, 0, -4);
+  $sql5 = "update artist set Prof_img = '$file_name' where Id = ".$id;
+  mysqli_query($con, $sql5);
+  header('Location: http://localhost/Art/artist_details.php');
+  
+}
+}
+?>
 
 <!DOCTYPE html>
 <html>
@@ -244,30 +311,7 @@ table{
 </style>
 <body>
 
-  <?php
-  
-  $id = $_SESSION["id"];
-  
-   $host="localhost";
-    $dbusername="Gurmeet";
-    $dbpassword="WINDOWSTEN";
-      $dbname="art_gallery";
-      $con=mysqli_connect($host,$dbusername,$dbpassword,$dbname);
-      $sql = "select * from artist where Id=".$id ;
-      $sql2 = "select * from art where Painter=".$id ;
-      $sql1 = "select sum(likes) from art where painter = ".$id ;
-      $res1=mysqli_query($con,$sql1);
-      $row1 = mysqli_fetch_assoc($res1);
-      $likes = $row1["sum(likes)"];
-    $res=mysqli_query($con,$sql);
-    $res2=mysqli_query($con,$sql2);
-    $cnt = mysqli_num_rows($res2);
-    if (mysqli_num_rows($res) > 0)
-    {
-    $row = mysqli_fetch_assoc($res);
-    }
-    else
-      die();
+    <?php
 
   echo '
 <div class="container">
@@ -284,9 +328,13 @@ table{
                <img src="artist_profile/'.$row["Prof_img"].'.jpg" class="img-thumbnail home_img" width="40px"  height="50px" alt="user img">
             </div>
               <div class="profile__header" style="position:relative;left:50px;top:10px;">
-                <b>Painter</b> : '.$row["pname"].'<br><br>
-                <b>Username</b>: '.$row["Username"].'<br>
-
+                <b>Painter</b> : '.$row["pname"].'<br>
+                <b>Username</b>: '.$row["Username"].'<br><br>
+                <form method="post" enctype="multipart/form-data" action="http://localhost/Art/artist_details.php">
+						<b> Change Profile Image :</b> <input placeholder="Change Profile Image" type="file" name="image" "><br>
+						<input style="position:relative;left:250px;top:-50px;" type="submit" class="btn btn-warning" name="register" value="Upload" >
+						</form>
+               
               </div>
            </div>
           </div>

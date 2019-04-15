@@ -1,5 +1,5 @@
 <?php
-
+		session_start();
 		$servername = "localhost";
 		$username = "Gurmeet";
 		$password = "WINDOWSTEN";
@@ -22,8 +22,9 @@
 				$row = $result->fetch_assoc();
 				$pass = $row["Password"];
 				$id = $row["Id"];
+				$_SESSION["uid"] = $id;
 				if(strcmp($pass,$_POST["user_pwd"])==0){
-					header('Location: http://localhost/Art/user.php?q='.$id.'&t=all&a=all&s=Price'); }
+					header('Location: http://localhost/Art/user.php?t=all&a=all&s=Price'); }
 				else{
 					$perr = "*Invalid Password";
 					//header('Location: http://localhost/scripts/index.php');
@@ -42,7 +43,7 @@
 				$pass = $row["Password"];
 				$id = $row["Id"];
 				if(strcmp($pass,$_POST["apwd"])==0){
-					session_start();
+					
 					$_SESSION["id"] = $id;
 					header('Location: http://localhost/Art/artist_details.php');
 					die();
