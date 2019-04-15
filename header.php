@@ -35,7 +35,7 @@
 		      	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="position:relative;left:-300px;top:80px;">
 			      <ul class="nav navbar-nav navbar-left top_menu">
 
-			     	<li <?php if($page=="index") echo 'class="active"' ?> ><a href="http://localhost/Art/user.php?q=<?php echo $userid; ?>&t=all&a=all&s=Price">Home<span style="position:relative;left:15px;" class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+			     	<li <?php if($page=="index") echo 'class="active"' ?> ><a href="http://localhost/Art/user.php?t=all&a=all&s=Price">Home<span style="position:relative;left:15px;" class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
 
 			     	<li class="dropdown">
 				     <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Arts <span class="caret"></span><span style="position:relative;left:15px;" class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>

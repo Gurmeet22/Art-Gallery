@@ -49,7 +49,7 @@ $userid = $_SESSION["uid"];
 		 $file_name = substr($file_name, 0, -4);
 		 $sql1 = "update user set Prof_img = '$file_name' where Id = ".$userid;
 		 mysqli_query($con, $sql1);
-		 header('Location: http://localhost/Art/profile_user.php');
+		 header('Location: http://localhost/Art/user.php?t=all&a=all&s=Price');
 	}
 }
 
