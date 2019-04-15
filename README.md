@@ -24,6 +24,17 @@ FUNCTIONALITIES IMPLEMENTED
 •	Customers will be able to like various paintings.
 •	Customers can browse the paintings in sorted order based on either number of likes or highest price.
 
+TECHNOLOGIES USED
+
+•	 PHP
+•	 MYSQL
+•	 HTML, CSS, Bootstrap
+•	 XAMPP Server
+•	 APACHE Server
+•	 Javascript
+•	 jQuery
+•	Draw.io
+•	Github
 
 
 </div>
