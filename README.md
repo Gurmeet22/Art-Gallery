@@ -1,11 +1,11 @@
-###Online Art Gallery
+Art Gallery Management System
 
 <div id="pgc-576-0-0" class="panel-grid-cell" data-weight="1">
 <div id="panel-576-0-0-1" class="so-panel widget widget_sow-editor" data-index="1" data-style="{&quot;background_display&quot;:&quot;tile&quot;}">
 <div class="so-widget-sow-editor so-widget-sow-editor-base">
 <div class="siteorigin-widget-tinymce textwidget">
 
-An online art gallery keeps information about the “Artists”, their names, birthplace, age and style of art about “art work”, artist , unique title , type of art and prices of art works . The pieces of artwork is classified into various kinds like medieval art , nature , animal,  landscapes , etc . The gallery keeps information about customers as well as the artists as their unique name, total amount spent on gallery and the likings of the customer.
+An online art gallery stores information about the “Artists”, their names, birthplace, age and style of art about “art work”, artist , unique title , type of art and prices of art works . The pieces of artwork is classified into various kinds like medieval art , nature , animal,  landscapes , etc . The gallery keeps information about customers as well as the artists as their unique name, total amount spent on gallery and the likings of the customer.
 
 Proposed System :
 
