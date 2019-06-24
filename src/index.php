@@ -24,7 +24,7 @@
 				$id = $row["Id"];
 				$_SESSION["uid"] = $id;
 				if(strcmp($pass,$_POST["user_pwd"])==0){
-					header('Location: http://localhost/Art/user.php?t=all&a=all&s=Price'); }
+					header('Location: http://localhost/Art/src/user.php?t=all&a=all&s=Price'); }
 				else{
 					$perr = "*Invalid Password";
 					//header('Location: http://localhost/scripts/index.php');
@@ -45,7 +45,7 @@
 				if(strcmp($pass,$_POST["apwd"])==0){
 					
 					$_SESSION["id"] = $id;
-					header('Location: http://localhost/Art/artist_details.php');
+					header('Location: http://localhost/Art/src/artist_details.php');
 					die();
 				}
 				else{
@@ -67,7 +67,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">		
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <link href="MainStyle.css" rel="stylesheet" type="text/css"/>
+        <link href="../public/css/MainStyle.css" rel="stylesheet" type="text/css"/>
         <title>Login Portal</title>
     </head>
     <body>
@@ -120,7 +120,7 @@
                                         										
                                         </div>
 										<div class="form-group">
-                                            <a href="http://localhost/Art/register_user.php" class="btnForgetPwd" >New User? Register...</a>
+                                            <a href="http://localhost/Art/src/register_user.php" class="btnForgetPwd" >New User? Register...</a>
                                         </div>
                                     </form>
                                 </div>
@@ -146,7 +146,7 @@
                                             <input type="submit" name="LGform2" class="btnContactSubmit" value="Login" />                                        
 										</div>
 										<div class="form-group">
-                                            <a href="http://localhost/Art/register_artist.php" class="btnForgetPwd" >Sign up...</a>
+                                            <a href="http://localhost/Art/src/register_artist.php" class="btnForgetPwd" >Sign up...</a>
                                         </div>
                                     </form>
                                 </div>
