@@ -24,7 +24,7 @@ if(isset($_POST["register"])){
 
  		if(empty($errors)==true)
 		{
- 			 move_uploaded_file($file_tmp,"User_profile/".$file_name);
+ 			 move_uploaded_file($file_tmp,"../User_profile/".$file_name);
  		}
 		else
  		{
@@ -58,7 +58,7 @@ if(isset($_POST["register"])){
 		$sql = "INSERT INTO user VALUES ('$name', '$ph', '$email', '$user', '$pwd', 0, '', '$pic')";
 		$conn->query($sql);
 
-		header('Location: http://localhost/Art/index.php');
+		header('Location: http://localhost/Art/src/index.php');
 	}
 }
 ?>
@@ -74,7 +74,7 @@ if(isset($_POST["register"])){
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">		
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <link href="MainStyle.css" rel="stylesheet" type="text/css"/>
+        <link href="../public/css/MainStyle.css" rel="stylesheet" type="text/css"/>
         <title>Register..</title>
 		<style>
 			.container {
@@ -123,7 +123,7 @@ if(isset($_POST["register"])){
                 </div>
 				<div class="form-group">
                 <input type="submit" class="btnContactSubmit" name="register" value="Register" >
-				        <input type="button"  class="btnContactSubmit" name="cancel" value="Cancel" onclick="window.location.href = 'http://localhost/Art/index.php'" style="position:relative;left:310px;top:-65px"></div>
+				        <input type="button"  class="btnContactSubmit" name="cancel" value="Cancel" onclick="window.location.href = 'http://localhost/Art/src/index.php'" style="position:relative;left:310px;top:-65px"></div>
             </form> 
         </div>
 		</div>
