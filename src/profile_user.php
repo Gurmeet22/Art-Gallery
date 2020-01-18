@@ -39,7 +39,7 @@ $userid = $_SESSION["uid"];
 
  		if(empty($errors)==true)
 		{
- 			 move_uploaded_file($file_tmp,"User_profile/".$file_name);
+ 			 move_uploaded_file($file_tmp,"../User_profile/".$file_name);
  		}
 		else
  		{
@@ -49,7 +49,7 @@ $userid = $_SESSION["uid"];
 		 $file_name = substr($file_name, 0, -4);
 		 $sql1 = "update user set Prof_img = '$file_name' where Id = ".$userid;
 		 mysqli_query($con, $sql1);
-		 header('Location: http://localhost/Art/user.php?t=all&a=all&s=Price');
+		 header('Location: http://localhost/Art-Gallery/src/user.php?t=all&a=all&s=Price');
 	}
 }
 
@@ -75,7 +75,7 @@ $userid = $_SESSION["uid"];
 						<h2>Phone : <?php echo $row["Phone"]; ?></h2><br>
 						<h2>Username : <?php echo $row["Username"]; ?></h2><br>
 						<h2>Total Spent : Rs. <?php echo $row["Spent"]; ?></h2><br><br><br>
-						<button onclick="window.location.href = 'http://localhost/Art/'" type="button" class="btn btn-default" style="font-size:120%;padding:10px;position:relative;left:20px;">Log Out</button>
+						<button onclick="window.location.href = 'http://localhost/Art-Gallery/src/'" type="button" class="btn btn-default" style="font-size:120%;padding:10px;position:relative;left:20px;">Log Out</button>
 						<button data-toggle="modal" data-target="#squarespaceModal" onclick="edit()" type="button" class="btn btn-default" style="font-size:120%;padding:10px;position:relative;left:30px;">Edit Details</button>
 					</div>
 				</div>
@@ -137,7 +137,7 @@ $userid = $_SESSION["uid"];
 		<div class="modal-body">
 			
             <!-- content goes here -->
-			<form method="post" action="http://localhost/Art/edit.php?q=<?php echo $userid; ?>">
+			<form method="post" action="http://localhost/Art-Gallery/src/edit.php?q=<?php echo $userid; ?>">
 			<div class="form-group">
                 <input name="name" type="text" class="form-control" placeholder="Enter Name" required>
               </div>
@@ -170,9 +170,9 @@ $userid = $_SESSION["uid"];
 </div>
 
 
-<script src="js/jquery.js"></script>
-<script src="js/script.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="../public/js/jquery.js"></script>
+<script src="../public/js/script.js"></script>
+<script src="../public/js/bootstrap.min.js"></script>
 
 <script>
 function unlike(x){
@@ -184,7 +184,7 @@ function unlike(x){
 		location.reload();
 		}
 	};
-	xmlhttp.open("GET", "http://localhost/Art/dellike.php?q="+x+"&p="+id, true);
+	xmlhttp.open("GET", "http://localhost/Art-Gallery/src/dellike.php?q="+x+"&p="+id, true);
 	xmlhttp.send();
 }
 

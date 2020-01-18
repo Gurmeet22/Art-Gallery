@@ -63,7 +63,7 @@ if(isset($_POST["submit"]))
 		$sql = "INSERT INTO art VALUES ('$name', $id, $likes, '$type', $price,	'$sold', 0 )";
         $conn->query($sql);
         
-        header('Location: http://localhost/Art/artist_details.php');
+        header('Location: http://localhost/Art-Gallery/src/artist_details.php');
 }
 ?>
 
@@ -152,7 +152,7 @@ if(isset($_POST["submit"]))
 
                         <div class="p-t-30">
                             <button class="btn btn--radius btn--green" type="submit" name='submit'>Submit</button>
-                            <button type="button" class="btn btn--radius btn--green" onclick="window.location.href = 'http://localhost/Art/artist_details.php'">Cancel</button>
+                            <button type="button" class="btn btn--radius btn--green" onclick="window.location.href = 'http://localhost/Art-Gallery/src/artist_details.php'">Cancel</button>
                         </div>
                     </form>
                 </div>

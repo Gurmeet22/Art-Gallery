@@ -17,6 +17,6 @@ if(isset($_POST["edit"])){
 	}
 	$sql = "update user set Name = '$name',Email = '$email',Phone = '$ph',Username = '$user' where Id = ".$id;
     $conn->query($sql);
-    header("Location: http://localhost/Art/profile_user.php?q=".$id);
+    header("Location: http://localhost/Art-Gallery/src/profile_user.php?q=".$id);
 }
 ?>

@@ -86,8 +86,8 @@ session_start();
 							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort By
 							<span class="caret"></span></button>
 							<ul class="dropdown-menu">
-								<li><a href="http://localhost/Art/user.php?q=<?php echo $userid; ?>&t=<?php echo $type; ?>&a=<?php echo $artist; ?>&s=Price">Price</a></li>
-								<li><a href="http://localhost/Art/user.php?q=<?php echo $userid; ?>&t=<?php echo $type; ?>&a=<?php echo $artist; ?>&s=Likes">Likes</a></li>
+								<li><a href="http://localhost/Art-Gallery/src/user.php?q=<?php echo $userid; ?>&t=<?php echo $type; ?>&a=<?php echo $artist; ?>&s=Price">Price</a></li>
+								<li><a href="http://localhost/Art-Gallery/src/user.php?q=<?php echo $userid; ?>&t=<?php echo $type; ?>&a=<?php echo $artist; ?>&s=Likes">Likes</a></li>
 							</ul>
 						</div>
 					</div>
@@ -153,9 +153,9 @@ session_start();
 
 			</div>
 			
-			<script src="js/jquery.js"></script>
-			<script src="js/script.js"></script>
-			<script src="js/bootstrap.min.js"></script>
+			<script src="../public/js/jquery.js"></script>
+			<script src="../public/js/script.js"></script>
+			<script src="../public/js/bootstrap.min.js"></script>
 
 			<script>
 				$(document).ready(function(){
@@ -173,7 +173,7 @@ session_start();
 							location.reload();
 							}
 						};
-						xmlhttp.open("GET", "http://localhost/Art/liked.php?q="+name+"&p="+id, true);
+						xmlhttp.open("GET", "http://localhost/Art-Gallery/src/liked.php?q="+name+"&p="+id, true);
 						xmlhttp.send();
 					});
 					$(".cart").click(function(){
@@ -190,7 +190,7 @@ session_start();
 							
 							}
 						};
-						xmlhttp.open("GET", "http://localhost/Art/addcart.php?q="+name+"&p="+id, true);
+						xmlhttp.open("GET", "http://localhost/Art-Gallery/src/addcart.php?q="+name+"&p="+id, true);
 						xmlhttp.send();
 					});
 				});

@@ -24,7 +24,7 @@
 				$id = $row["Id"];
 				$_SESSION["uid"] = $id;
 				if(strcmp($pass,$_POST["user_pwd"])==0){
-					header('Location: http://localhost/Art/src/user.php?t=all&a=all&s=Price'); }
+					header('Location: http://localhost/Art-Gallery/src/src/user.php?t=all&a=all&s=Price'); }
 				else{
 					$perr = "*Invalid Password";
 					//header('Location: http://localhost/scripts/index.php');
@@ -45,7 +45,7 @@
 				if(strcmp($pass,$_POST["apwd"])==0){
 					
 					$_SESSION["id"] = $id;
-					header('Location: http://localhost/Art/src/artist_details.php');
+					header('Location: http://localhost/Art-Gallery/src/src/artist_details.php');
 					die();
 				}
 				else{
@@ -120,7 +120,7 @@
                                         										
                                         </div>
 										<div class="form-group">
-                                            <a href="http://localhost/Art/src/register_user.php" class="btnForgetPwd" >New User? Register...</a>
+                                            <a href="http://localhost/Art-Gallery/src/register_user.php" class="btnForgetPwd" >New User? Register...</a>
                                         </div>
                                     </form>
                                 </div>
@@ -146,7 +146,7 @@
                                             <input type="submit" name="LGform2" class="btnContactSubmit" value="Login" />                                        
 										</div>
 										<div class="form-group">
-                                            <a href="http://localhost/Art/src/register_artist.php" class="btnForgetPwd" >Sign up...</a>
+                                            <a href="http://localhost/Art-Gallery/src/register_artist.php" class="btnForgetPwd" >Sign up...</a>
                                         </div>
                                     </form>
                                 </div>

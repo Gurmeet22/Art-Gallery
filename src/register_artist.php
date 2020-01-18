@@ -67,7 +67,7 @@ if(isset($_POST["register"]))
 		$sql = "INSERT INTO artist VALUES ('$name', '$ph', '$email', '$dob', '', '$user', '$pwd','$pic')";
 
 		$conn->query($sql);
-		header('Location: http://localhost/Art/src/index.php');
+		header('Location: http://localhost/Art-Gallery/src/index.php');
 	}
 }
 ?>
@@ -140,7 +140,7 @@ if(isset($_POST["register"]))
 				<div class="form-group">
 
                 <input type="submit" class="btnContactSubmit" name="register" value="Register" >
-				        <input type="button"  class="btnContactSubmit" name="cancel" value="Cancel" onclick="window.location.href = 'http://localhost/Art/src/index.php'" style="position:relative;left:310px;top:-65px"></div>
+				        <input type="button"  class="btnContactSubmit" name="cancel" value="Cancel" onclick="window.location.href = 'http://localhost/Art-Gallery/src/index.php'" style="position:relative;left:310px;top:-65px"></div>
             </form>
         </div>
 		</div>

@@ -18,6 +18,6 @@ if(isset($_POST["edit"])){
 	}
 	$sql = "update artist set pname = '$name',Email = '$email',Phone = '$ph',Username = '$user',Birthplace = '$birth' where Id = ".$id;
     $conn->query($sql);
-    header("Location: http://localhost/Art/artist_details.php");
+    header("Location: http://localhost/Art-Gallery/src/artist_details.php");
 }
 ?>

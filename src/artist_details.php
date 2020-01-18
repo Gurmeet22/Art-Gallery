@@ -51,7 +51,7 @@ if(isset($_FILES['image']))
 
   if(empty($errors)==true)
  {
-     move_uploaded_file($file_tmp,"Artist_profile/".$file_name);
+     move_uploaded_file($file_tmp,"../Artist_profile/".$file_name);
   }
  else
   {
@@ -61,7 +61,7 @@ if(isset($_FILES['image']))
   $file_name = substr($file_name, 0, -4);
   $sql5 = "update artist set Prof_img = '$file_name' where Id = ".$id;
   mysqli_query($con, $sql5);
-  header('Location: http://localhost/Art/artist_details.php');
+  header('Location: http://localhost/Art-Gallery/src/artist_details.php');
   
 }
 }
@@ -330,7 +330,7 @@ table{
               <div class="profile__header" style="position:relative;left:50px;top:10px;">
                 <b>Painter</b> : '.$row["pname"].'<br>
                 <b>Username</b>: '.$row["Username"].'<br><br>
-                <form method="post" enctype="multipart/form-data" action="http://localhost/Art/artist_details.php">
+                <form method="post" enctype="multipart/form-data" action="http://localhost/Art-Gallery/src/artist_details.php">
 						<b> Change Profile Image :</b> <input placeholder="Change Profile Image" type="file" name="image" "><br>
 						<input style="position:relative;left:250px;top:-50px;" type="submit" class="btn btn-warning" name="register" value="Upload" >
 						</form>
@@ -342,7 +342,7 @@ table{
 
 
       <div class="col-sm-3">
-          <a href="http://localhost/Art/adding/addpaintings.php" class="profile__contact-btn btn btn-lg btn-block btn-info">
+          <a href="http://localhost/Art-Gallery/adding/addpaintings.php" class="profile__contact-btn btn btn-lg btn-block btn-info">
           Add Painting
           </a>
           </div>
@@ -355,7 +355,7 @@ table{
 
 
           <div class="col-sm-3">
-              <a href="http://localhost/Art/index.php" class="profile__contact-btn btn btn-lg btn-block btn-warning" >
+              <a href="http://localhost/Art-Gallery/src/index.php" class="profile__contact-btn btn btn-lg btn-block btn-warning" >
                Logout
               </a>
               </div>
@@ -444,7 +444,7 @@ table{
 		<div class="modal-body">
 
             <!-- content goes here -->
-			<form method="post" action="http://localhost/Art/edit_artist.php?q=<?php echo $id; ?>">
+			<form method="post" action="http://localhost/Art-Gallery/src/edit_artist.php?q=<?php echo $id; ?>">
 			<div class="form-group">
                 <input name="name" type="text" class="form-control" placeholder="Enter Name" required>
               </div>

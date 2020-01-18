@@ -115,7 +115,7 @@ $t=0;
 							
 			}
 		};
-		xmlhttp.open("GET", "http://localhost/Art/delcart.php?q="+n+"&p="+id, true);
+		xmlhttp.open("GET", "http://localhost/Art-Gallery/src/delcart.php?q="+n+"&p="+id, true);
 		xmlhttp.send();
 	}
 
@@ -133,7 +133,7 @@ $t=0;
 			}
 			}
 		};
-		xmlhttp.open("GET", "http://localhost/Art/buy.php?q="+id+"&c="+c, true);
+		xmlhttp.open("GET", "http://localhost/Art-Gallery/src/buy.php?q="+id+"&c="+c, true);
 		xmlhttp.send();
 	}
 	</script>
